@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import {bindActionCreators} from 'redux';
 import logo from './logo.svg';
 import './App.css';
-import * as Api from './api';
+import {specLookupsRequest} from './action';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 
   componentDidMount () {
-      Api.fetchSpecLookups();
+      this.props.init();
   }
 
   render() {
@@ -24,4 +27,20 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+    preview: PropTypes.array.isRequired,
+    init: PropTypes.func.isRequired
+};
+
+export { App };
+
+const mapStateToProps = (state) => ({
+    preview: state.specs.previews
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    init: specLookupsRequest
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
