@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as Api from './api/index';
 
 class App extends Component {
+
+  componentDidMount () {
+      Api.fetchSpecLookups();
+  }
+
   render() {
     return (
       <div className="App">
