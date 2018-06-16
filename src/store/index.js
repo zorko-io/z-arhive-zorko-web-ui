@@ -1,4 +1,5 @@
 import {createStore, compose, applyMiddleware} from 'redux';
+import { createLogger } from 'redux-logger';
 import {DEFAULT_APP_STATE} from "../state";
 import rootReducer from '../reducer';
 
@@ -9,8 +10,8 @@ if (process.env.NODE_ENV === 'development' && reduxDevToolsEnhancer) {
     composeEnhancers = reduxDevToolsEnhancer;
 }
 
-const middleware = [];
-
+const reduxLogger = createLogger();
+const middleware = [reduxLogger];
 
 export default function createAppStore () {
     const enhancer = composeEnhancers(applyMiddleware(...middleware));
