@@ -5,6 +5,7 @@ import './App.css';
 import {specLookupsRequest} from './action';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {getAllPreviews} from "./selector";
 
 class App extends Component {
 
@@ -28,14 +29,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-    preview: PropTypes.array.isRequired,
+    previews: PropTypes.array.isRequired,
     init: PropTypes.func.isRequired
 };
 
 export { App };
 
 const mapStateToProps = (state) => ({
-    preview: state.specs.previews
+    previews: getAllPreviews(state)
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
