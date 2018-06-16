@@ -14,6 +14,8 @@ class App extends Component {
   }
 
   render() {
+    const { previews} = this.props;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -23,6 +25,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+          {previews.map((specPreview, i)=>(<div key={i} dangerouslySetInnerHTML={ {__html:specPreview.preview }}/>))}
       </div>
     );
   }
