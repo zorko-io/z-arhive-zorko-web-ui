@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import {bindActionCreators} from 'redux';
-import logo from './logo.svg';
 import './App.css';
 import {specLookupsRequest} from './action';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {getAllPreviews} from "./selector";
+import logo from './logo.png';
 
 class App extends Component {
 
@@ -17,16 +17,27 @@ class App extends Component {
     const { previews} = this.props;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-          {previews.map((specPreview, i)=>(<div key={i} dangerouslySetInnerHTML={ {__html:specPreview.preview }}/>))}
-      </div>
+        <Fragment>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand">
+                    <a className="navbar-item" href="https://www.zorko.io">
+                        <img src={logo}
+                             alt="Zorko: a place to discover and share visualizations"/>
+                    </a>
+
+                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"/>
+                        <span aria-hidden="true"/>
+                        <span aria-hidden="true"/>
+                    </a>
+                </div>
+            </nav>
+            <main>
+                {previews.map((specPreview, i)=>(
+                    <div key={i} dangerouslySetInnerHTML={ {__html:specPreview.preview }}/>
+                ))}
+            </main>
+        </Fragment>
     );
   }
 }
