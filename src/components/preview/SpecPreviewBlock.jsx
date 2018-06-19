@@ -2,6 +2,7 @@ import React, {Component, Fragment} from "react";
 import PropTypes from "prop-types";
 import {getAllPreviews} from "../../selector";
 import {connect} from "react-redux";
+import SpecPreview from "./SpecPreview";
 
 class SpecPreviewBlock extends Component {
 
@@ -11,7 +12,7 @@ class SpecPreviewBlock extends Component {
         return (
            <Fragment>
                {previews.map((specPreview, i)=>(
-                   <div key={i} dangerouslySetInnerHTML={ {__html:specPreview.preview }}/>
+                  <SpecPreview key={i} content={specPreview.preview}/>
                ))}
            </Fragment>
         );
