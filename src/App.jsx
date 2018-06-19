@@ -4,8 +4,8 @@ import './App.css';
 import {specLookupsRequest} from './action';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {getAllPreviews} from "./selector";
 import NavigationBar from "./components/navigation/NavigationBar";
+import SpecPreviewBlock from "./components/preview/SpecPreviewBlock";
 
 class App extends Component {
 
@@ -14,15 +14,12 @@ class App extends Component {
   }
 
   render() {
-    const { previews } = this.props;
 
     return (
         <Fragment>
             <NavigationBar/>
             <main>
-                {previews.map((specPreview, i)=>(
-                    <div key={i} dangerouslySetInnerHTML={ {__html:specPreview.preview }}/>
-                ))}
+                <SpecPreviewBlock/>
             </main>
         </Fragment>
     );
@@ -30,19 +27,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-    previews: PropTypes.array.isRequired,
     init: PropTypes.func.isRequired
 };
 
 export { App };
 
-const mapStateToProps = (state) => ({
-    previews: getAllPreviews(state)
-});
-
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     init: specLookupsRequest
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
 
