@@ -11,19 +11,20 @@ class NavigationBar extends Component {
                         <img src={logo}
                              alt="Zorko: a place to discover and share visualizations"/>
                     </a>
-                    <div className="navbar-burger burger" data-target="navMenuTarget">
-                        <span/>
-                        <span/>
-                        <span/>
-                    </div>
+                    {/*TODO: enable and make clickable when needed*/}
+                    {/*<div className="navbar-burger burger" data-target="navMenuTarget">*/}
+                        {/*<span/>*/}
+                        {/*<span/>*/}
+                        {/*<span/>*/}
+                    {/*</div>*/}
                 </div>
-                <div id="navMenuTarget" className="navbar-menu">
-                    <div className="navbar-end">
-                        <div className="navbar-item">
-                            <a className="button  is-primary" disabled={true}>Sing in</a>
-                        </div>
-                    </div>
-                </div>
+                {/*<div id="navMenuTarget" className="navbar-menu">*/}
+                    {/*<div className="navbar-end">*/}
+                        {/*<div className="navbar-item">*/}
+                            {/*<a className="button  is-primary" disabled={true}>Sing in</a>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
 
             </nav>
         );
