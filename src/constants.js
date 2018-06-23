@@ -1,4 +1,4 @@
 export const API_DEFAULT_PAGGINATION_OPTIONS = {
     offset: 0,
-    limit: 250
+    limit: 25
 };
