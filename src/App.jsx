@@ -18,12 +18,8 @@ class App extends Component {
     return (
         <Fragment>
             <NavigationBar/>
-            <main className="container">
-                <div className="columns">
-                    <div className="column">
-                        <SpecPreviewBlock/>
-                    </div>
-                </div>
+            <main className="section">
+                <SpecPreviewBlock/>
             </main>
         </Fragment>
     );

@@ -11,9 +11,17 @@ class SpecPreviewBlock extends Component {
 
         return (
            <Fragment>
-               {previews.map((specPreview, i)=>(
-                  <SpecPreview key={i} content={specPreview.preview}/>
-               ))}
+
+               <div className="container">
+                   <div className="columns">
+                       <div className="column">
+                           {previews.map((specPreview, i)=>(
+                               <SpecPreview key={i} content={specPreview.preview}/>
+                           ))}
+                       </div>
+                   </div>
+               </div>
+
            </Fragment>
         );
     }
