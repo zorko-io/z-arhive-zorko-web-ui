@@ -1,6 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
 
+export * from './specs'
 
-export * from './specs';
-
-axios.defaults.baseURL = process.env.REACT_APP_ZORKO_SERVER_BASE_URL;
+axios.defaults.baseURL = process.env.REACT_APP_ZORKO_SERVER_BASE_URL

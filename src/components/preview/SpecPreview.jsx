@@ -1,40 +1,33 @@
-import React, {Component} from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class SpecPreview extends Component {
+  constructor(props) {
+    super(props)
+    this.svgParent = React.createRef()
+  }
 
-    constructor(props) {
-        super(props);
-        this.svgParent = React.createRef();
+  componentDidMount() {
+    const nodes = Array.from(this.svgParent.current.children)
+    const svgPreview = nodes.pop()
+    if (svgPreview) {
+      svgPreview.setAttribute('width', '280')
+      svgPreview.setAttribute('height', '158')
     }
+  }
 
-    componentDidMount() {
-        const nodes = Array.from(this.svgParent.current.children);
-        const svgPreview = nodes.pop();
-        if (svgPreview) {
-            svgPreview.setAttribute('width', '280');
-            svgPreview.setAttribute('height', '158');
-        }
-    }
+  render() {
+    const { content } = this.props
 
-    render() {
-        const {content} = this.props;
-
-        return (
-            <div ref={this.svgParent}
-                 dangerouslySetInnerHTML={{__html: content}}
-            />
-
-        );
-    }
+    return <div ref={this.svgParent} dangerouslySetInnerHTML={{ __html: content }} />
+  }
 }
 
 SpecPreview.propTypes = {
-    content: PropTypes.string.isRequired,
-};
+  content: PropTypes.string.isRequired
+}
 
 SpecPreview.defaultProps = {
-    content: '<svg></svg>'
-};
-export default SpecPreview;
-
+  content: '<svg></svg>'
+}
+export default SpecPreview

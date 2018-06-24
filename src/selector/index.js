@@ -1,1 +1,1 @@
-export * from './previews';
+export * from './previews'

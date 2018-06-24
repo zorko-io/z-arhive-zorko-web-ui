@@ -1,23 +1,22 @@
-import {DEFAULT_ERROR_STATE} from "../state";
-import {ERROR_CLEAR, ERROR_RECOVERABLE_SET} from "../action";
+import { DEFAULT_ERROR_STATE } from '../state'
+import { ERROR_CLEAR, ERROR_RECOVERABLE_SET } from '../action'
 
-const initialState = {...DEFAULT_ERROR_STATE};
+const initialState = { ...DEFAULT_ERROR_STATE }
 
 export default function errorReducer(state = initialState, action) {
-    switch (action.type) {
+  switch (action.type) {
+    case ERROR_RECOVERABLE_SET:
+      return {
+        level: 'recoverable',
+        message: action.payload
+      }
 
-        case (ERROR_RECOVERABLE_SET):
-            return {
-                level: 'recoverable',
-                message: action.payload
-            };
+    case ERROR_CLEAR:
+      return {
+        ...initialState
+      }
 
-        case (ERROR_CLEAR):
-            return {
-                ...initialState
-            };
-
-        default:
-            return state
-    }
+    default:
+      return state
+  }
 }
