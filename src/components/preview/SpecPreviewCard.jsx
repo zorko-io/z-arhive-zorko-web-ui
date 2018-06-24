@@ -31,18 +31,17 @@ class SpecPreviewCard extends Component {
         </div>
         <div className="card-content">
           <div className="content">
-            <p className="title is-6">[Seattle weather in 2000]</p>
-          </div>
-        </div>
-        <div className="card-footer">
-          <div className="media">
-            <div className="media-left">
-              <figure className="image is-24x24">
-                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-              </figure>
+            <div className="item-title">
+              <span>[Seattle weather in 2000]</span>
             </div>
-            <div className="media-content">
-              <p className="subtitle is-6">admin</p>
+            <div className="card-content-author">
+              <span
+                className="card-content-author-ava"
+                style={{
+                  backgroundImage: `url(https://bulma.io/images/placeholders/96x96.png)`
+                }}
+              />
+              <span className="card-content-author-login">admin</span>
             </div>
           </div>
         </div>
