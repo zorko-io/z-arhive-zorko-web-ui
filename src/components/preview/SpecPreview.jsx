@@ -9,10 +9,11 @@ class SpecPreview extends Component {
 
   componentDidMount() {
     const nodes = Array.from(this.svgParent.current.children)
+
     const svgPreview = nodes.pop()
     if (svgPreview) {
       svgPreview.setAttribute('width', '280')
-      svgPreview.setAttribute('height', '150')
+      svgPreview.setAttribute('height', '158')
     }
   }
 
