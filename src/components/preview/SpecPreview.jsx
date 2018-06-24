@@ -12,7 +12,7 @@ class SpecPreview extends Component {
     const svgPreview = nodes.pop()
     if (svgPreview) {
       svgPreview.setAttribute('width', '280')
-      svgPreview.setAttribute('height', '158')
+      svgPreview.setAttribute('height', '150')
     }
   }
 
