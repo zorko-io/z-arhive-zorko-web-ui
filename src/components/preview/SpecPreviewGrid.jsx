@@ -5,18 +5,20 @@ import { connect } from 'react-redux'
 import * as R from 'ramda'
 import SpecPreviewCard from './SpecPreviewCard'
 
-class SpecPreviewBlock extends Component {
+class SpecPreviewGrid extends Component {
   render() {
     const columns = this.columns
 
     return (
       <Fragment>
-        <div className="container">
+        <div className="preview-grid">
           <div className="columns">
             {columns.map((rows, i) => (
               <div key={i} className="column">
                 {rows.map((spec, j) => (
-                  <SpecPreviewCard key={`${i}-${j}`} content={spec.preview} />
+                  <div key={`${i}-${j}`} className="preview-grid-item">
+                    <SpecPreviewCard content={spec.preview} />
+                  </div>
                 ))}
               </div>
             ))}
@@ -60,11 +62,11 @@ class SpecPreviewBlock extends Component {
   }
 }
 
-SpecPreviewBlock.propTypes = {
+SpecPreviewGrid.propTypes = {
   previews: PropTypes.array.isRequired
 }
 
-SpecPreviewBlock.defaultProps = {
+SpecPreviewGrid.defaultProps = {
   previews: []
 }
 
@@ -72,4 +74,4 @@ const mapStateToProps = (state) => ({
   previews: getAllPreviews(state)
 })
 
-export default connect(mapStateToProps)(SpecPreviewBlock)
+export default connect(mapStateToProps)(SpecPreviewGrid)

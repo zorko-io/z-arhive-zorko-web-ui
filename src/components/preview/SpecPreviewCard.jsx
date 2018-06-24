@@ -30,6 +30,11 @@ class SpecPreviewCard extends Component {
           />
         </div>
         <div className="card-content">
+          <div className="content">
+            <p className="title is-6">[Seattle weather in 2000]</p>
+          </div>
+        </div>
+        <div className="card-footer">
           <div className="media">
             <div className="media-left">
               <figure className="image is-24x24">

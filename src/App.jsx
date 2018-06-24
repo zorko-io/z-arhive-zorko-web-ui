@@ -5,7 +5,7 @@ import { specLookupsRequest } from './action'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import NavigationBar from './components/navigation/NavigationBar'
-import SpecPreviewBlock from './components/preview/SpecPreviewBlock'
+import SpecPreviewGrid from './components/preview/SpecPreviewGrid'
 
 class App extends Component {
   componentDidMount() {
@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <Fragment>
         <NavigationBar />
-        <main className="section">
-          <SpecPreviewBlock />
+        <main>
+          <SpecPreviewGrid />
         </main>
       </Fragment>
     )
