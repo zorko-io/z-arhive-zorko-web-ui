@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { getAllPreviews } from '../../selector'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
-import SpecPreview from './SpecPreview'
+import SpecPreviewCard from './SpecPreviewCard'
 
 class SpecPreviewBlock extends Component {
   render() {
@@ -15,7 +15,9 @@ class SpecPreviewBlock extends Component {
           <div className="columns">
             {columns.map((rows, i) => (
               <div key={i} className="column">
-                {rows.map((spec, j) => <SpecPreview key={`${i}-${j}`} content={spec.preview} />)}
+                {rows.map((spec, j) => (
+                  <SpecPreviewCard key={`${i}-${j}`} content={spec.preview} />
+                ))}
               </div>
             ))}
           </div>
