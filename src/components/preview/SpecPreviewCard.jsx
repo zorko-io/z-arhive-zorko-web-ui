@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+const DEFAULT_MIN_WIDTH = 280
+const DEFAULT_MIN_HEIGHT = 158
+
 class SpecPreviewCard extends Component {
   constructor(props) {
     super(props)
@@ -12,14 +15,15 @@ class SpecPreviewCard extends Component {
 
     const svgPreview = nodes.pop()
     if (svgPreview) {
-      svgPreview.setAttribute('width', '280')
-      svgPreview.setAttribute('height', '158')
+      svgPreview.setAttribute('width', DEFAULT_MIN_WIDTH)
+      svgPreview.setAttribute('height', DEFAULT_MIN_HEIGHT)
     }
   }
 
   render() {
     let { content, title } = this.props
 
+    content = content ? content : SpecPreviewCard.defaultProps.content
     title = title ? title : SpecPreviewCard.defaultProps.title
 
     return (
@@ -58,7 +62,7 @@ SpecPreviewCard.propTypes = {
 }
 
 SpecPreviewCard.defaultProps = {
-  content: '<svg></svg>',
+  content: `<svg width="${DEFAULT_MIN_WIDTH}" height="${DEFAULT_MIN_HEIGHT}"/>`,
   title: 'Untitled'
 }
 export default SpecPreviewCard
