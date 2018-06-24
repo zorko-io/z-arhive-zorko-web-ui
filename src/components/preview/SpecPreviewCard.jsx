@@ -32,7 +32,7 @@ class SpecPreviewCard extends Component {
         <div className="card-content">
           <div className="content">
             <div className="item-title">
-              <span>[Seattle weather in 2000]</span>
+              <span>Seattle weather in 2000</span>
             </div>
             <div className="card-content-author">
               <span
