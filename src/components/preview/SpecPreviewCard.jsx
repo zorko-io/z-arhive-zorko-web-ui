@@ -18,7 +18,9 @@ class SpecPreviewCard extends Component {
   }
 
   render() {
-    const { content } = this.props
+    let { content, title } = this.props
+
+    title = title ? title : SpecPreviewCard.defaultProps.title
 
     return (
       <div className="card">
@@ -32,7 +34,7 @@ class SpecPreviewCard extends Component {
         <div className="card-content">
           <div className="content">
             <div className="item-title">
-              <span>Seattle weather in 2000</span>
+              <span>{title}</span>
             </div>
             <div className="card-content-author">
               <span
@@ -51,10 +53,12 @@ class SpecPreviewCard extends Component {
 }
 
 SpecPreviewCard.propTypes = {
-  content: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
+  title: PropTypes.string
 }
 
 SpecPreviewCard.defaultProps = {
-  content: '<svg></svg>'
+  content: '<svg></svg>',
+  title: 'Untitled'
 }
 export default SpecPreviewCard

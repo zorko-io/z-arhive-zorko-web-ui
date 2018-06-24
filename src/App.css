@@ -59,6 +59,13 @@
   border: solid 1px #979797;
 }
 
+.preview-grid-item .card .item-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 270px
+}
+
 .preview-grid-item .card-content-author {
   vertical-align: middle;
   padding-top: 10px;

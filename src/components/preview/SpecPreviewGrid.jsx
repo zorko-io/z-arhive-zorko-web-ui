@@ -17,7 +17,7 @@ class SpecPreviewGrid extends Component {
               <div key={i} className="column">
                 {rows.map((spec, j) => (
                   <div key={`${i}-${j}`} className="preview-grid-item">
-                    <SpecPreviewCard content={spec.preview} />
+                    <SpecPreviewCard title={spec.title} content={spec.preview} />
                   </div>
                 ))}
               </div>
