@@ -4,6 +4,7 @@ import { getAllPreviews } from '../../selector/index'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
 import PreviewCard from './PreviewCard'
+import { Link } from 'react-router-dom'
 
 class PreviewGrid extends Component {
   render() {
@@ -24,6 +25,9 @@ class PreviewGrid extends Component {
             ))}
           </div>
         </div>
+        <Link to={'/spec?limit=0&offset=8'}>
+          <button className="button is-primary">Next</button>
+        </Link>
       </Fragment>
     )
   }

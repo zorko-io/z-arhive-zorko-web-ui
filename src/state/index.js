@@ -1,3 +1,5 @@
+import { API_DEFAULT_PAGGINATION_OPTIONS } from '../constants'
+
 export const DEFAULT_ERROR_STATE = {
   level: '',
   message: ''
@@ -10,7 +12,8 @@ export const DEFAULT_SPECS_STATE = {
 
 export const DEFAULT_PREVIEWS_STATE = {
   byId: {},
-  allIds: []
+  allIds: [],
+  ...API_DEFAULT_PAGGINATION_OPTIONS
 }
 
 export const DEFAULT_APP_STATE = {
