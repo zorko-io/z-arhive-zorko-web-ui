@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { getAllPreviews } from '../../selector'
+import { getAllPreviews } from '../../selector/index'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
-import SpecPreviewCard from './SpecPreviewCard'
+import PreviewCard from './PreviewCard'
 
-class SpecPreviewGrid extends Component {
+class PreviewGrid extends Component {
   render() {
     const columns = this.columns
 
@@ -17,7 +17,7 @@ class SpecPreviewGrid extends Component {
               <div key={i} className="column">
                 {rows.map((spec, j) => (
                   <div key={`${i}-${j}`} className="preview-grid-item">
-                    <SpecPreviewCard title={spec.title} content={spec.preview} />
+                    <PreviewCard title={spec.title} content={spec.preview} />
                   </div>
                 ))}
               </div>
@@ -62,11 +62,11 @@ class SpecPreviewGrid extends Component {
   }
 }
 
-SpecPreviewGrid.propTypes = {
+PreviewGrid.propTypes = {
   previews: PropTypes.array.isRequired
 }
 
-SpecPreviewGrid.defaultProps = {
+PreviewGrid.defaultProps = {
   previews: []
 }
 
@@ -74,4 +74,4 @@ const mapStateToProps = (state) => ({
   previews: getAllPreviews(state)
 })
 
-export default connect(mapStateToProps)(SpecPreviewGrid)
+export default connect(mapStateToProps)(PreviewGrid)

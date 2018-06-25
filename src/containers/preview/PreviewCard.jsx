@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const DEFAULT_MIN_WIDTH = 280
 const DEFAULT_MIN_HEIGHT = 158
 
-class SpecPreviewCard extends Component {
+class PreviewCard extends Component {
   constructor(props) {
     super(props)
     this.svgParent = React.createRef()
@@ -23,8 +23,8 @@ class SpecPreviewCard extends Component {
   render() {
     let { content, title } = this.props
 
-    content = content ? content : SpecPreviewCard.defaultProps.content
-    title = title ? title : SpecPreviewCard.defaultProps.title
+    content = content ? content : PreviewCard.defaultProps.content
+    title = title ? title : PreviewCard.defaultProps.title
 
     return (
       <div className="card">
@@ -56,13 +56,13 @@ class SpecPreviewCard extends Component {
   }
 }
 
-SpecPreviewCard.propTypes = {
+PreviewCard.propTypes = {
   content: PropTypes.string.isRequired,
   title: PropTypes.string
 }
 
-SpecPreviewCard.defaultProps = {
+PreviewCard.defaultProps = {
   content: `<svg width="${DEFAULT_MIN_WIDTH}" height="${DEFAULT_MIN_HEIGHT}"/>`,
   title: 'Untitled'
 }
-export default SpecPreviewCard
+export default PreviewCard

@@ -5,7 +5,9 @@ import { specLookupsRequest } from './action'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import NavigationBar from './components/navigation/NavigationBar'
-import SpecPreviewGrid from './components/preview/SpecPreviewGrid'
+import { Switch, Route } from 'react-router-dom'
+import HomePage from './containers/home/HomePage'
+import PreviewPage from './containers/preview/PreviewPage'
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +19,10 @@ class App extends Component {
       <Fragment>
         <NavigationBar />
         <main>
-          <SpecPreviewGrid />
+          <Switch>
+            <Route exact={true} path={'/'} component={HomePage} />
+            <Route exact={false} path={'/specs'} component={PreviewPage} />
+          </Switch>
         </main>
       </Fragment>
     )
