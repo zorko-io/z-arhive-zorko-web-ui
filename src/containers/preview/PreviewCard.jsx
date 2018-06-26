@@ -10,6 +10,7 @@ class PreviewCard extends Component {
     this.svgParent = React.createRef()
   }
 
+  // TODO: use other place to workaround svg sizes, no triggers on already mounted component
   componentDidMount() {
     const nodes = Array.from(this.svgParent.current.children)
 
