@@ -30,7 +30,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
-      "git add"
+      "git add ."
     ]
   },
   "devDependencies": {

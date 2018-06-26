@@ -8,6 +8,7 @@ import NavigationBar from './components/navigation/NavigationBar'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/home/HomePage'
 import PreviewPage from './containers/preview/PreviewPage'
+import { ConnectedRouter } from 'react-router-redux'
 
 class App extends Component {
   componentDidMount() {
@@ -19,10 +20,12 @@ class App extends Component {
       <Fragment>
         <NavigationBar />
         <main>
-          <Switch>
-            <Route exact={true} path={'/'} component={HomePage} />
-            <Route exact={false} path={'/specs'} component={PreviewPage} />
-          </Switch>
+          <ConnectedRouter history={this.props.history}>
+            <Switch>
+              <Route exact={true} path={'/'} component={HomePage} />
+              <Route exact={false} path={'/specs'} component={PreviewPage} />
+            </Switch>
+          </ConnectedRouter>
         </main>
       </Fragment>
     )
@@ -30,20 +33,26 @@ class App extends Component {
 }
 
 App.propTypes = {
-  init: PropTypes.func.isRequired
+  init: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export { App }
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(
-    {
-      init: specLookupsRequest
-    },
-    dispatch
-  )
+export default function createApp(history) {
+  const mapStateToProps = () => ({
+    history: history
+  })
+  const mapDispatchToProps = (dispatch) =>
+    bindActionCreators(
+      {
+        init: specLookupsRequest
+      },
+      dispatch
+    )
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(App)
+  return connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+}

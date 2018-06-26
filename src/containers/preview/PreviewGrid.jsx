@@ -12,6 +12,9 @@ class PreviewGrid extends Component {
 
     return (
       <Fragment>
+        <Link to={'/specs'}>
+          <button className="button is-primary">Next</button>
+        </Link>
         <div className="preview-grid">
           <div className="columns">
             {columns.map((rows, i) => (
@@ -25,9 +28,6 @@ class PreviewGrid extends Component {
             ))}
           </div>
         </div>
-        <Link to={'/spec?limit=0&offset=8'}>
-          <button className="button is-primary">Next</button>
-        </Link>
       </Fragment>
     )
   }
