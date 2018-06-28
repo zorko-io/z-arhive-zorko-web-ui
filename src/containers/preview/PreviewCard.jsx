@@ -1,31 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { resizeSvgContent } from '../../util/resize-svg-content'
 
 const DEFAULT_MIN_WIDTH = 280
 const DEFAULT_MIN_HEIGHT = 158
 
 class PreviewCard extends Component {
-  constructor(props) {
-    super(props)
-    this.svgParent = React.createRef()
-  }
-
-  // TODO: use other place to workaround svg sizes, no triggers on already mounted component
-  componentDidMount() {
-    const nodes = Array.from(this.svgParent.current.children)
-
-    const svgPreview = nodes.pop()
-    if (svgPreview) {
-      svgPreview.setAttribute('width', DEFAULT_MIN_WIDTH)
-      svgPreview.setAttribute('height', DEFAULT_MIN_HEIGHT)
-    }
-  }
-
   render() {
     let { content, title } = this.props
-
     content = content ? content : PreviewCard.defaultProps.content
     title = title ? title : PreviewCard.defaultProps.title
+    content = resizeSvgContent({
+      content,
+      width: DEFAULT_MIN_WIDTH,
+      height: DEFAULT_MIN_HEIGHT
+    })
 
     return (
       <div className="card">
