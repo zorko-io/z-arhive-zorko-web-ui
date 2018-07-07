@@ -14,7 +14,10 @@ export default function previewReducer(state = initialState, action) {
       const limit = 6
 
       if (params) {
-        const pageNumber = params.specId
+        let pageNumber = Number(params.specId)
+        if (Number.isNaN(pageNumber)) {
+          pageNumber = 0
+        }
         offset = pageNumber * limit
       }
 
