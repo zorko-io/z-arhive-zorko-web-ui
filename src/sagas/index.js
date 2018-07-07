@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects'
 import watchSpecs from './specs'
 import watchErrors from './error'
-import watchLocation from './location'
+import watchHome from './home'
 
 export default function* watchAllSagas() {
-  yield all([watchSpecs(), watchErrors(), watchLocation()])
+  yield all([watchSpecs(), watchErrors(), watchHome()])
 }

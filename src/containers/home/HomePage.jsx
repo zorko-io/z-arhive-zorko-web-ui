@@ -6,8 +6,9 @@ import { homePageInit } from '../../action/home'
 import { bindActionCreators } from 'redux'
 
 class HomePage extends Component {
-  static getDerivedStateFromProps(props) {
+  static getDerivedStateFromProps(props, state) {
     props.pageInit(props.match)
+    return state
   }
 
   render() {
