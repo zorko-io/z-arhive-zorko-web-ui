@@ -1,1 +1,3 @@
-export * from './previews'
+import * as previews from './previews'
+
+export { previews }

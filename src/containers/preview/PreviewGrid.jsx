@@ -1,20 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { getAllPreviews } from '../../selector/index'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
 import PreviewCard from './PreviewCard'
 import { Link } from 'react-router-dom'
+import { previews } from '../../selector'
 
 class PreviewGrid extends Component {
   render() {
     const columns = this.columns
-
+    const { previousUrl, nextUrl } = this.props
     return (
       <Fragment>
-        <Link to={'/specs'}>
-          <button className="button is-primary">Next</button>
-        </Link>
         <div className="preview-grid">
           <div className="columns">
             {columns.map((rows, i) => (
@@ -28,6 +25,12 @@ class PreviewGrid extends Component {
             ))}
           </div>
         </div>
+        <Link to={previousUrl}>
+          <button className="button is-disabled">Prev</button>
+        </Link>
+        <Link to={nextUrl}>
+          <button className="button is-primary">Next</button>
+        </Link>
       </Fragment>
     )
   }
@@ -75,7 +78,9 @@ PreviewGrid.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  previews: getAllPreviews(state)
+  previews: previews.getAll(state),
+  previousUrl: previews.getPreviousUrl(state),
+  nextUrl: previews.getNextUrl(state)
 })
 
 export default connect(mapStateToProps)(PreviewGrid)

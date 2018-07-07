@@ -18,6 +18,7 @@ class App extends Component {
             <Switch>
               <Route exact={true} path={'/'} component={HomePage} />
               <Route exact={false} path={'/specs'} component={PreviewPage} />
+              <Route exact={false} path={'/specs/:specId'} component={PreviewPage} />
             </Switch>
           </ConnectedRouter>
         </main>
