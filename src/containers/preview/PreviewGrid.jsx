@@ -25,9 +25,11 @@ class PreviewGrid extends Component {
             ))}
           </div>
         </div>
-        <Link to={previousUrl}>
-          <button className="button is-disabled">Prev</button>
-        </Link>
+        {previousUrl && (
+          <Link to={previousUrl}>
+            <button className="button is-disabled">Prev</button>
+          </Link>
+        )}
         <Link to={nextUrl}>
           <button className="button is-primary">Next</button>
         </Link>
