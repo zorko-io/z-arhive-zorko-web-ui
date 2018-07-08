@@ -1,4 +1,4 @@
-import { ROUNTE_SPECS_PAGGINATION, ROUNTE_SPECS } from '../constant'
+import { ROUNTE_SPECS_PAGGINATION, ROUNTE_HOME } from '../constant'
 
 export const getAll = (state) => state.previews.allIds.map((id) => state.previews.byId[id])
 
@@ -12,7 +12,7 @@ export const getPreviousUrl = (state) => {
   let pageNumber = getPageNumber(state)
   pageNumber -= 1
   if (pageNumber === 0) {
-    result = ROUNTE_SPECS
+    result = ROUNTE_HOME
   } else if (pageNumber > 0) {
     result = ROUNTE_SPECS_PAGGINATION.replace(':specId', pageNumber)
   }
