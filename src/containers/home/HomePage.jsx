@@ -4,7 +4,8 @@ import connect from 'react-redux/es/connect/connect'
 import PropTypes from 'prop-types'
 import { homePageInit } from '../../action/home'
 import { bindActionCreators } from 'redux'
-import HomeIntro from './HomeIntro'
+import HomeIntroSection from './HomeIntroSection'
+import HomeAboutUsSection from './HomeAboutUsSection'
 
 class HomePage extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -15,8 +16,9 @@ class HomePage extends Component {
   render() {
     return (
       <Fragment>
-        <HomeIntro />
+        <HomeIntroSection />
         <PreviewGrid />
+        <HomeAboutUsSection />
       </Fragment>
     )
   }

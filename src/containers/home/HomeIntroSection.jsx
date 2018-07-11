@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class HomeIntro extends Component {
+class HomeIntroSection extends Component {
   render() {
     return (
       <section className="hero">
@@ -20,4 +20,4 @@ class HomeIntro extends Component {
   }
 }
 
-export default HomeIntro
+export default HomeIntroSection
