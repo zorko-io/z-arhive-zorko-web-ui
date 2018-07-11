@@ -12,6 +12,7 @@ class HomeIntro extends Component {
             <h2 className="subtitle">
               Charts, graphincs and maps build on top of public data (json,csv) in the web
             </h2>
+            <button className="button is-primary">Contact us</button>
           </div>
         </div>
       </section>
