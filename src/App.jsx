@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import './App.css'
+import './index.css'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import NavigationBar from './components/navigation/NavigationBar'

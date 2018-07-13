@@ -20,15 +20,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run css-deploy",
+    "build": "react-scripts build && npm run build:css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier config .prettierrc --write 'src/**/*.{js,jsx}'",
     "precommit": "lint-staged",
-    "css-deploy": "npm run css-build && npm run css-postcss",
-    "css-build": "node-sass src/styles/_index.scss src/App.css",
-    "css-postcss": "postcss --use autoprefixer --output src/App.css src/App.css",
-    "css-watch": "npm run css-build -- --watch"
+    "build:css": "npm run build:sass && npm run build:postcss",
+    "build:sass":"node-sass-chokidar ./src/styles/ -o ./src",
+    "build:postcss": "postcss --use autoprefixer --output src/index.css src/index.css",
+    "watch:css": "node-sass-chokidar src/styles/ -o src/ --watch --recursive"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -45,6 +45,7 @@
     "autoprefixer": "^7.1.5",
     "bulma": "^0.7.1",
     "node-sass": "^4.5.3",
-    "postcss-cli": "^4.1.1"
+    "postcss-cli": "^4.1.1",
+    "node-sass-chokidar": "^1.3.0"
   }
 }
