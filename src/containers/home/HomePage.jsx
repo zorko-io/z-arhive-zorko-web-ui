@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PreviewGrid from '../preview/PreviewGrid'
 import connect from 'react-redux/es/connect/connect'
 import PropTypes from 'prop-types'
-import { homePageInit } from '../../action/home'
+import { specsPageRequest } from '../../action/home'
 import { bindActionCreators } from 'redux'
 import HomeIntroSection from './HomeIntroSection'
 import HomeAboutUsSection from './HomeAboutUsSection'
@@ -10,7 +10,7 @@ import HomeContactUsSection from './HomeContactUsSection'
 
 class HomePage extends Component {
   static getDerivedStateFromProps(props, state) {
-    props.pageInit(props.match)
+    props.pageInit()
     return state
   }
 
@@ -33,7 +33,7 @@ HomePage.propTypes = {
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      pageInit: homePageInit
+      pageInit: specsPageRequest
     },
     dispatch
   )

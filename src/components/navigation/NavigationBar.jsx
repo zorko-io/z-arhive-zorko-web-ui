@@ -6,7 +6,7 @@ class NavigationBar extends Component {
     return (
       <nav className="navbar" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://www.zorko.io">
+          <a className="navbar-item" href="/">
             <img src={logo} alt="Zorko: a place to discover and share visualizations" />
           </a>
           {/*TODO: enable and make clickable when needed*/}

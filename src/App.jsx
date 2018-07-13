@@ -6,6 +6,7 @@ import NavigationBar from './components/navigation/NavigationBar'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/home/HomePage'
 import { ConnectedRouter } from 'react-router-redux'
+import PreviewPage from './containers/preview/PreviewPage'
 
 class App extends Component {
   render() {
@@ -16,8 +17,8 @@ class App extends Component {
           <ConnectedRouter history={this.props.history}>
             <Switch>
               <Route exact={true} path={'/'} component={HomePage} />
-              <Route exact={true} path={'/specs'} component={HomePage} />
-              <Route exact={true} path={'/specs/:specId'} component={HomePage} />
+              <Route exact={true} path={'/specs'} component={PreviewPage} />
+              <Route exact={true} path={'/specs/:specId'} component={PreviewPage} />
             </Switch>
           </ConnectedRouter>
         </main>

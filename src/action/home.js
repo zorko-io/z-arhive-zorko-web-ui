@@ -1,6 +1,6 @@
-export const HOME_PAGE_INIT = 'HOME_PAGE_INIT'
+export const SPECS_PAGE_REQUEST = 'SPECS_PAGE_REQUEST'
 
-export const homePageInit = (match) => ({
-  type: HOME_PAGE_INIT,
-  payload: { match }
+export const specsPageRequest = (specsPageId) => ({
+  type: SPECS_PAGE_REQUEST,
+  payload: specsPageId
 })
