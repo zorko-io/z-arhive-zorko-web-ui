@@ -27,7 +27,7 @@ export default function previewReducer(state = initialState, action) {
         offset
       }
     case SPEC_LOOKUPS_SET:
-      const previews = action.payload
+      const previews = action.payload || []
       return {
         ...state,
         byId: previews.reduce(
