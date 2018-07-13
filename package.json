@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bulma": "^0.7.1",
     "history": "^4.7.2",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
@@ -25,7 +24,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier config .prettierrc --write 'src/**/*.{js,jsx}'",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "css-deploy": "npm run css-build && npm run css-postcss",
+    "css-build": "node-sass src/styles/_index.scss src/App.css",
+    "css-postcss": "postcss --use autoprefixer --output src/App.css src/App.css",
+    "css-watch": "npm run css-build -- --watch"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -38,6 +41,10 @@
     "@types/react-router-dom": "^4.2.7",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
-    "prettier": "1.13.5"
+    "prettier": "1.13.5",
+    "autoprefixer": "^7.1.5",
+    "bulma": "^0.7.1",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^4.1.1"
   }
 }
