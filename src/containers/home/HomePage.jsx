@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import { specsPageRequest } from '../../action/home'
 import { bindActionCreators } from 'redux'
 import HomeIntroSection from './HomeIntroSection'
-import HomeAboutUsSection from './HomeAboutUsSection'
-import HomeContactUsSection from './HomeContactUsSection'
 
 class HomePage extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -19,8 +17,6 @@ class HomePage extends Component {
       <Fragment>
         <HomeIntroSection />
         <PreviewGrid />
-        <HomeAboutUsSection />
-        <HomeContactUsSection />
       </Fragment>
     )
   }
